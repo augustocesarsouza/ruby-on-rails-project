@@ -1,0 +1,8 @@
+<h2>Ola</h2>
+
+<% if user_signed_in? %>
+  <h1>BEM VINDO AO NOSSO ECOMMERCE</h1>
+  <%= link_to "logout", destroy_user_session_path, method: :delete  %>
+<% else %>
+<h2>Você não está logado... Por favor, se cadastre <%= link_to "Sign up", new_user_session_path %> </h2>
+<% end %>
