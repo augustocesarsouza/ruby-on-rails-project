@@ -1,18 +1,28 @@
-<h2>Forgot your password?</h2>
+<%= simple_form_for(resource, html: { class: 'login-form' }, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <div class="text-center">
+     <%= f.error_notification %>
+  </div>
 
   <div class="form-inputs">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
+                label: false, #tira nome "email",
+                placeholder: 'E-mail',
                 input_html: { autocomplete: "email" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
+  <%= render "devise/shared/button_submit", f: f, text: 'Recuperar senha' %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="form-group d-md-flex">
+   
+    <div class="w-100 text-md-right">
+      <%= render "devise/shared/links" %>
+
+      <%# render para renderizar partes de um HTML dentro de uma TELA, para reutilizar em varios locais%>
+      <%# arquivo que tiver '_' igual no views/shared todo arquivo que for de template que tiver "_", ele é um arquivo que posso usar "render", para renderizar como partes de um HTML%>
+      <%# posso reutilizar em outras partes do codigo e não deixar ele fixo aqui, SEPARA EM UMA VIEW, com "_" para ele se comportar como "passion" e ai pode reutilizar com "render"%>
+    </div>
+  </div>
