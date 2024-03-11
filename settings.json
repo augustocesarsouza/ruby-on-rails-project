@@ -1,16 +1,3 @@
 {
-  // "solargraph.commandPath": "/home/augustouser/.asdf/shims/solargraph"
-  "[ruby]": {
-    "editor.defaultFormatter": "castwide.solargraph"
-  },
-  "solargraph.formatting": true,
-  "solargraph.diagnostics": true,
-  // "solargraph.bundlerPath": "/home/snack/.asdf/installs/ruby/3.3.0/bin/bundle",
-  // "solargraph.commandPath": "/home/snack/.rbenv/versions/3.2.0/bin/solargraph",
-  "solargraph.bundlerPath": "/home/augustouser/.asdf/installs/ruby/3.3.0/bin/bundle",
-  "solargraph.commandPath": "/home/augustouser/.asdf/installs/ruby/3.3.0/bin/solargraph",
-  "solargraph.useBundler": false,
-  "ruby.intellisense": false
+  
 }
-
-//\\wsl.localhost\Ubuntu\home\augustouser\.asdf\installs\ruby\3.3.0\bin

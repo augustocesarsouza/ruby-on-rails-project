@@ -1,20 +1,32 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, html: { class: 'login-form' }, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
+                label: false, #tira nome "email",
+                placeholder: 'E-mail',
                 input_html: { autocomplete: "email" } %>
     <%= f.input :password,
                 required: false,
+                label: false, #tira nome "password",
+                placeholder: 'Senha',
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <%= render "devise/shared/button_submit", f: f, text: 'Entrar'%>
+
+  <div class="form-group d-md-flex">
+    <div class="w-50">
+      <%= f.input :remember_me, as: :boolean, input_html: { class: 'remember' } if devise_mapping.rememberable? %>
+    </div>
+    <div class="w-50 text-md-right">
+      <%= render "devise/shared/links" %>
+
+      <%# render para renderizar partes de um HTML dentro de uma TELA, para reutilizar em varios locais%>
+      <%# arquivo que tiver '_' igual no views/shared todo arquivo que for de template que tiver "_", ele é um arquivo que posso usar "render", para renderizar como partes de um HTML%>
+      <%# posso reutilizar em outras partes do codigo e não deixar ele fixo aqui, SEPARA EM UMA VIEW, com "_" para ele se comportar como "passion" e ai pode reutilizar com "render"%>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+

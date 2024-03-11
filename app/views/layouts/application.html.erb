@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EcommerceShowzim</title>
+    <title>Bem vindo ao Ecommerce Showzim</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+   
+    <%= yield %> <%# esse yield parece ser a a propria view que vai carrgar aqui, e qualquer coisa que eu colocar em volta dela vai carregar em todos %>
+    <%# quando chegar a requisição pela "rota" ela sabe que é o "controller" vai saber quem é action e a action chama a view que vai ser "index.html"  %>
+    
   </body>
 </html>
