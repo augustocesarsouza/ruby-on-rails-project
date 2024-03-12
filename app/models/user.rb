@@ -6,4 +6,7 @@ class User < ApplicationRecord
   # devise já faz alguma validações email senha
         
   validates :name, :phone, presence: true
+
+  enum role: { user: 'user', admin: 'admin'}
+  # enum: role: ['user', 'admin'] # esses dois funciona, para mapear a tabela aqui  no model
 end
