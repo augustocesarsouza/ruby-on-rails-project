@@ -31,7 +31,7 @@
               </div>
               <h3 class="text-center mb-4">Login</h3>
               <%= render 'layouts/shared/flash' if flash.present? %>
-              <%= yield %> <%# aqui ele chamaa app/views/devise/session/new.html - no caso nova session %>
+              <%= yield %> <%# aqui ele chamaa qualquer pasta que tiver "devise vai depender se estiver em passwords, session etc"  app/views/devise/ - %>
             </div>
           </div>
         </div>

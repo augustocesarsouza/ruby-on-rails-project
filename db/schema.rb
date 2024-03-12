@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_10_184142) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_193820) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "role_user", ["user", "admin"]
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,10 +24,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_10_184142) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
-    t.string "phone"
+    t.string "name", null: false
+    t.string "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "role", default: "user", null: false, enum_type: "role_user"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
