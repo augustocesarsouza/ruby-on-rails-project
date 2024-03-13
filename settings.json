@@ -1,3 +1,21 @@
 {
-  "solargraph.commandPath": "/home/augustouser/.asdf/shims/solargraph"
+  
+  // Don't forget to set the manager to custom when using this option
+  "rubyLsp.rubyVersionManager": "none",
+  
+  // Using a different version manager than the ones included by default
+  // "rubyLsp.customRubyCommand": "asdf global ruby 3.3.0",
+  "rubyLsp.formatter": "auto",
+  "rubyLsp.enableExperimentalFeatures": false
+  
+    // Adding a custom Ruby bin folder to the PATH
+    // "rubyLsp.customRubyCommand": "PATH=/path/to/ruby/bin:$PATH",
+  
+
+  // "solargraph.commandPath": "/home/augustouser/.asdf/shims/solargraph",
+  // "solargraph.useBundler": true,
+  // "ruby.rubyPath": "/home/augustouser/.asdf/shims/ruby",
+  // "solargraph.transport": "stdio",
+  // "solargraph.formatting": true,
+  // "solargraph.diagnostics": true
 }

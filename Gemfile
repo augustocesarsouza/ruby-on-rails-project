@@ -62,6 +62,7 @@ group :development, :test do
   gem 'rspec-rails'#flameork de teste
   gem 'rubocop'
   gem 'solargraph'
+  gem "ruby-lsp"
 end
 
 group :development do
