@@ -1,5 +1,6 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
 css: yarn watch:css
 devise: yarn build:css:devise --watch
+devise: yarn build:css:admin --watch
 
 ##-- esse devise é para ficar vende a pasta css lá no app/assets/stylesheets/device - alterações --
