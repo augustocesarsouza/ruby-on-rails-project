@@ -11,9 +11,10 @@
   </head>
 
   <body>
-   
-    <%= yield %> <%# esse yield parece ser a a propria view que vai carrgar aqui, e qualquer coisa que eu colocar em volta dela vai carregar em todos %>
+        <%= render 'layouts/store/nav' %>
+        <%= yield %> <%# aqui somente o que pertense a rota application que sera index.html de HOME vai carregar somente%>
+        <%= render 'layouts/store/footer' %>
+    <%# esse yield parece ser a a propria view que vai carrgar aqui, e qualquer coisa que eu colocar em volta dela vai carregar em todos %>
     <%# quando chegar a requisição pela "rota" ela sabe que é o "controller" vai saber quem é action e a action chama a view que vai ser "index.html"  %>
-    
   </body>
 </html>

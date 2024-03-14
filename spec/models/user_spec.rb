@@ -10,13 +10,13 @@ RSpec.describe User, type: :model do
       # expect(user.valid?).to eq(true)
     end
 
-    it "Verifica se o campo nome não está presente" do 
+    it 'Verifica se o campo nome não está presente' do 
       # Arrange, Act, Assert
       user = build(:user, name: nil) # não precisa colocar FactoryBot.build, só build ele consegue dectar porque já foi vinculado com RSpec spec/support/factory_bot.rb
 
       expect(user.valid?).to be_falsey # <- esse jeito é mais usado em espresas be_truthy/be_falsey
     end
-
+    
     it "Verifica se o campo phone não está presente" do 
       # Arrange, Act, Assert
       user = build(:user, phone: nil) 
@@ -35,14 +35,16 @@ RSpec.describe User, type: :model do
 
       expect(user.valid?).to be_falsey
     end
-
+    
     context "Valida email" do
       it "Verifica se o email é unico" do 
-        user1 = create(:user) 
-       user2 = create(:user, email: user1.email) # está build e não create porque ele vai lançar uma exeção e nao é oque queremos agora
+       user1 = create(:user) 
+       user2 = build(:user, email: user1.email) # está build e não create porque ele vai lançar uma exeção e nao é oque queremos agora
+
+       user2.save
   
         expect(user2.valid?).to be_falsey
-        # expect { create(:user, email: user1.email)}.to raise_error(ActiveRecord::RecordInvalid, /Email has already been taken/)
+        # expect { create(:user, email: user1.email)}.to raise_error(ActiveRecord::RecordInvalid, /Email has already been taken/) # test exeção
         # binding.pry com isso conseguimos interagir com o teste e ver as class ver os error
       end
       
