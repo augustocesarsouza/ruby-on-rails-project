@@ -17,16 +17,25 @@
   <hr class="sidebar-divider">
 
   <li class="nav-item">
-      <a class="nav-link" href="<%= admin_categories_path %>">
-          <i class="fa-regular fa-bookmark"></i>
-          <span>Categorias</span>
-      </a>
-      
+    <a class="nav-link" href="<%= admin_categories_path %>">
+        <i class="fa-regular fa-bookmark"></i>
+        <span>Categorias</span>
+    </a>
   </li>
 
-  <li class="nav-item active">
-     <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link"  %>
-  </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<%= admin_products_path %>">
+            <i class="fa-brands fa-product-hunt"></i>
+            <span>Produtos</span>
+        </a>
+    </li>
+
+     <li class="nav-item">
+        <a class="nav-link" data-method="delete" href="<%= destroy_user_session_path %>">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Sair</span>
+        </a>
+    </li>
 
   <hr class="sidebar-divider d-none d-md-block">
 

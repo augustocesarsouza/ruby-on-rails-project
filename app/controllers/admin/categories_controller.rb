@@ -62,7 +62,7 @@
 
       # Only allow a list of trusted parameters through.
       def category_params
-        params.require(:category).permit(:name, :position)
+        params.require(:category).permit(:name, :position) # restringindo qual os campo pode vim aqui só esses são aceitos
       end
   end
 end
