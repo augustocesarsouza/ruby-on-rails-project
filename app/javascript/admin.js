@@ -9,5 +9,8 @@ import './add_jquery.js'
 import * as bootstrap from "bootstrap"
 window.bootstrap = bootstrap
 
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
+
 import "./sbadmin/sbadmin.js" 
 import "./sbadmin/jquery-easing/jquery.easing.min.js"
