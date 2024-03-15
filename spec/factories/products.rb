@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    description { "MyText" }
-    price { "9.99" }
-    publish { false }
-    category { nil }
+    name { Faker::Name.name }
+    description { Faker::Restaurant.description }
+    price {Faker::Number.decimal(l_digits: 2)}
+    publish = Faker::Boolean.boolean
   end
 end
