@@ -43,3 +43,5 @@
 .env.test
 
 coverage
+
+config/cloudinary.yml
