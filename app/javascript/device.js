@@ -2,7 +2,7 @@
 // import "hotwired/turbo-rails"
 import "@hotwired/turbo-rails"
 import "./controllers"
-import "./add_jquery"
+// import "./jquery"
 import * as bootstrap from "bootstrap"
 
 Turbo.session.drive = false

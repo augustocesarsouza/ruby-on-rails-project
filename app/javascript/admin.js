@@ -3,8 +3,7 @@ import "@hotwired/turbo-rails"
 
 import "./controllers"
 
-import './add_jquery.js'
-
+// import './jquery.js'
 
 import * as bootstrap from "bootstrap"
 window.bootstrap = bootstrap

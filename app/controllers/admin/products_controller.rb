@@ -10,7 +10,13 @@ module Admin
     end # quando clicar em salvar, aqui no edit, ele chama "update"
 
     def new
+      authorize Product
+
       @product = Product.new
+    # rescue Pundit::NotAuthorizedError #esse é o jeito "errado" eu fiz do outro jeito que é com "I18n" "jeito certo"
+    #   flash[:notice] = "Você só pode cadastrar um produto se tiver uma categoria criada."
+    #   redirect_to action: :index
+
     end # quando chegar aqui ele só está a instacia do product, quando criar em salvar ai sim ele chama 'create'
 
     def show;end
