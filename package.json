@@ -9,6 +9,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "esbuild": "^0.20.1",
+    "inputmask": "^5.0.8",
     "jquery": "^3.7.1",
     "nodemon": "^3.1.0",
     "postcss": "^8.4.35",
