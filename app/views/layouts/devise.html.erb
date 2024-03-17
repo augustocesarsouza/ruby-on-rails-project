@@ -12,18 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    
-     <%= javascript_include_tag "devise",  "data-turbo-track": "reload" %>
-
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        if (window.jQuery) {
-          console.log("jQuery está carregado e pronto para uso!");
-        } else {
-          console.log("jQuery não está disponível. Verifique se está sendo carregado corretamente.");
-        }
-      });
-    </script>
+     <%= javascript_include_tag "devise",  "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>

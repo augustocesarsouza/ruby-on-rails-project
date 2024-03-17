@@ -4,9 +4,7 @@ import { Turbo } from "@hotwired/turbo-rails";
 // Connects to data-controller="admin-modal"
 export default class extends Controller {
   
-  initialize() {
-    console.log("Initializing Controller");
-    
+  connect() {
     this.element.setAttribute("data-action", "click->admin-modal#click_modal");
   }
 
@@ -16,15 +14,11 @@ export default class extends Controller {
   
     fetch(this.url, {
       headers: { 
-        Accept: "text/vnd.turbo-stream.html"
+        Accept: "text/vnd.turbo-stream.html" // aqui inves dele chamar edit.html, ele vai fazer "edit.turbo_stream" do turbo stream, muda de via "HTML" via "TURBO STREAM"
       }
     })
     .then(res => res.text())
     .then(html => Turbo.renderStreamMessage(html))
-  }
-
-  connect() {
-    console.log("O controlador foi conectado!");
   }
 
   disconnect() {
