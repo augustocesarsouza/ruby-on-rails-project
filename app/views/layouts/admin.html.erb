@@ -14,20 +14,8 @@
         rel="stylesheet">
 
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <%= javascript_include_tag "jquery" %>
-
-    <%= javascript_include_tag "admin", "data-turbo-track": "reload" %>
-
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        if (window.jQuery) {
-          console.log("jQuery está carregado e pronto para uso!");
-        } else {
-          console.log("jQuery não está disponível. Verifique se está sendo carregado corretamente.");
-        }
-      });
-  </script>
+   
+    <%= javascript_include_tag "admin",  "data-turbo-track": "reload" %>
   
   </head>
         <body id="page-top">
