@@ -20,10 +20,13 @@
                 <h2><%= current_user.name %></h2>
                 <%= image_tag "profile", width: 120, class: "mb-4" %>
 
-                <%= simple_form_for current_user, url: "#" do |f| %>
+                <%= simple_form_for current_user, url: update_user_settings_path, data: { turbo: false }  do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
                   <%= f.input :email, readonly: true %>
                   <%= f.input :name %>
-                  <%= f.input :phone %>
+                  <%= f.input :phone, input_html: { class: "mask-phone" } %>
                   <%= f.button :submit, "Atualizar", class: "btn btn-primary mt-4" %>
                 <% end %>
               </div>

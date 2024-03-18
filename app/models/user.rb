@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # devise já faz alguma validações email senha
   
-  validates_format_of :phone, with: /\A[0-9]+\z/, message: "Telefone deve ser nesse formato 99-99999999"
   validates :name, :phone, presence: true # aqui da para fazer validação avaçadas tipo "DD DataFormatada"
 
   enum role: { user: 'user', admin: 'admin'}
