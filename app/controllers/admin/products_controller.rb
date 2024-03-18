@@ -54,7 +54,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def product_params # autoriazado esse campo para "update, create" via submit
-      params.require(:product).permit(:name, :description, :price, :publish, :image, :category_id) # restringindo qual os campo pode vim aqui só esses são aceitos
+      params.require(:product).permit(:name, :description, :price, :publish, :image, :category_id, :promo, :promo_price) # restringindo qual os campo pode vim aqui só esses são aceitos
     end
   end
 end
