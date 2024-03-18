@@ -6,7 +6,7 @@ module Admin
       @products = Product.all
     end
 
-    def edit 
+    def edit # quando eu clico aqui ele chama "before_action" ali que tem o "set_category", lá em baixo ele faz get pelo parametro que vier
     end # quando clicar em salvar, aqui no edit, ele chama "update"
 
     def new
@@ -23,24 +23,19 @@ module Admin
 
     def create
       @product = Product.new(product_params)
-
-      respond_to do |format|
         if @product.save
-          format.html { redirect_to admin_products_path(@product), notice: "product was successfully created." }
+          redirect_to admin_products_path(@product), notice: "product was successfully created."
         else
-          format.html { render :new, status: :unprocessable_entity }
+          render :new, status: :unprocessable_entity
         end
-      end
     end
 
     def update
-      respond_to do |format|
         if @product.update(product_params)
-          format.html { redirect_to admin_products_path(@product), notice: "product was successfully updated." }
+          redirect_to admin_products_path(@product), notice: "product was successfully updated."
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          render :edit, status: :unprocessable_entity
         end
-      end
     end
 
     def destroy
