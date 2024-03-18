@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "home#index" #home ali é controller, index ali é action
+  resources :settings, only: [:index]
 
   # namespace - você Separaria em rotas ficaria tipo admin/category/categories <- SE eu colocar namespace ASSIM "namespace:category e resources :categories dentro"  
   # MAS acho que nao faz sentido agora / tentar fazer depois esse jeito de separar namespace
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
     resources :categories
     resources :products
   end
+  
 end
