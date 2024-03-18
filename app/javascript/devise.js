@@ -3,7 +3,7 @@ import "./controllers"
 
 import * as bootstrap from "bootstrap"
 
-// Turbo.session.drive = false
+Turbo.session.drive = false
 
 // import { Turbo } from '@hotwired/turbo-rails'
 // Turbo.session.drive = false

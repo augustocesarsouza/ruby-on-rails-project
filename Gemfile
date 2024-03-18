@@ -69,6 +69,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'#black points to spect code
   gem 'rspec-rails'#flameork de teste
+  gem 'bullet'
 end
 
 group :development do

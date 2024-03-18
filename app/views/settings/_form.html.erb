@@ -1,0 +1,9 @@
+<%= simple_form_for current_user, url: "settings_path", method: :put do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.input :email, readonly: true %>
+  <%= f.input :name %>
+  <%= f.input :phone %>
+  <%= f.button :submit, "seila", class: "btn btn-primary mt-4" %>
+<% end %>

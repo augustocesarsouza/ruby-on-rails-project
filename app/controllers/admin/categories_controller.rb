@@ -9,7 +9,7 @@
     end
 
     # GET /categories/1 or /categories/1.json
-    def show
+    def show # chama "before_action" "set_category"
     end
 
     # GET /categories/new
@@ -18,7 +18,7 @@
     end
 
     # GET /categories/1/edit
-    def edit
+    def edit # quando eu clico aqui ele chama "before_action" ali que tem o "set_category", lá em baixo ele faz get pelo parametro que vier
     end
 
     # POST /categories or /categories.json
