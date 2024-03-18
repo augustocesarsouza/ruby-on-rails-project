@@ -11,7 +11,7 @@ export default class extends Controller {
   click_modal(e){
     e.preventDefault();
     this.url = this.element.getAttribute('href');
-  
+
     fetch(this.url, {
       headers: { 
         Accept: "text/vnd.turbo-stream.html" // aqui inves dele chamar edit.html, ele vai fazer "edit.turbo_stream" do turbo stream, muda de via "HTML" via "TURBO STREAM"
