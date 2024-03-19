@@ -17,6 +17,7 @@
           <div class="col-9">
             <div class="card">
               <div class="card-body">
+                <%= render 'layouts/shared/flash' if flash.present? %>
                 <h2><%= current_user.name %></h2>
                 <%= image_tag "profile", width: 120, class: "mb-4" %>
 
