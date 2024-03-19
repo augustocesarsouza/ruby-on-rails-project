@@ -28,6 +28,9 @@
 
                                 <%# ProductDecorator.new(product).full_promo %>
                                 <%= product.full_promo %> <%# isso aqui quando já foi decorado na chamada do index em todos os  "product" %>
+                                <%# não é o jeito correto usar 'decorator' nessa situação deve usar partial %>
+
+                                <%# render "full_promo", product: product %> <%# esse melhor jeito usando 'partial' %>
                             </div>
                         </div>
                         <!-- Product actions-->

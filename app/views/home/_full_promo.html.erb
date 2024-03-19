@@ -1,0 +1,6 @@
+<% if product.promo? %>
+  <span class="text-muted text-decoration-line-through"><%= number_to_currency product.price %></span>
+  <span><%= number_to_currency product.promo_price %></span>
+<% else %>
+  <%= number_to_currency product.price %>
+<% end %>
