@@ -20,6 +20,13 @@ Rails.application.configure do
     # Bullet.slack = { webhook_url: 'http://some.slack.url', channel: '#default', username: 'notifier' }
   end
 
+  Cloudinary.config do |config|
+    config.cloud_name = ENV['CLOUDINARY_CLOUD_NAME']
+    config.api_key = ENV['CLOUDINARY_API_KEY']
+    config.api_secret = ENV['CLOUDINARY_API_SECRET']
+    config.secure = true # Para usar URLs seguras (https)
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

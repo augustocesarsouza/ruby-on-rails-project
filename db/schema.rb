@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_111116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "promo", default: false
-    t.decimal "promo_price"
+    t.decimal "promo_price", default: "0.0"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

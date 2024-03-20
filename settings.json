@@ -1,7 +1,7 @@
 {
   
   // Don't forget to set the manager to custom when using this option
-  // "rubyLsp.rubyVersionManager": "asdf",
+  "rubyLsp.rubyVersionManager": "rbenv",
   
   // Using a different version manager than the ones included by default
   // "rubyLsp.customRubyCommand": "asdf global ruby 3.3.0",
@@ -14,8 +14,8 @@
   "solargraph.transport": "stdio",
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
-  "ruby.rubyPath": "/home/augustouser/.asdf/shims/ruby",
-  "rubyLsp.rubyVersionManager": "asdf",
+  "ruby.rubyPath": "/home/augustocesar/.rbenv/shims/ruby",
+  
 
   "rubyLsp.formatter": "auto",
   "[ruby]": {

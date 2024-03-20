@@ -8,6 +8,8 @@ class HomeController < ApplicationController
 
     # @products = Product.all
   end
+
+  def seila
+    @products = Product.select(:id, :name, :price, :promo, :promo_price).map { |p| ProductPresenter.new(p) }
+  end
 end
-
-

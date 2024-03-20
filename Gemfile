@@ -38,6 +38,7 @@ gem 'pundit'
 gem "aws-sdk-s3"
 
 gem 'cloudinary'
+# gem 'cloudinary_activestorage'
 
 gem "image_processing", ">= 1.2"
 
@@ -70,6 +71,8 @@ group :development, :test do
   gem 'pry-rails'#black points to spect code
   gem 'rspec-rails'#flameork de teste
   gem 'bullet'
+  gem 'solargraph'
+  gem 'htmlbeautifier'
 end
 
 group :development do

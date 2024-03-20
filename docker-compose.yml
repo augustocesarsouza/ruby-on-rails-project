@@ -1,0 +1,82 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+    image: ecommerce_prog
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
+    volumes:
+      - .:/app
+      - projeto_bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    networks:
+      - ecommerce_prog_network
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${ENV_FILE:-.env}
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: ecommerce_prog_db
+    volumes:
+      - postgresData:/var/lib/postgresql/data
+      # - ./postgresData:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "casa123456Mudar"
+    ports:
+      - "5432:5432"
+    networks:
+      - ecommerce_prog_network
+
+  # redis:
+  #   image: redis:6.0.7
+  #   container_name: ecommerce_prog_redis
+  #   command: redis-server
+  #   # volumes:
+  #   #   - redis_data:/data -> isso estava antes troquei
+  #   volumes:
+  #     - redis_volume_data:/data
+  #   ports:
+  #     - "6379:6379"
+  #   logging:
+  #     driver: none
+  #   networks:
+  #     - ecommerce_prog_network
+
+  # sidekiq:
+  #   image: ecommerce_prog
+  #   container_name: ecommerce_prog_sidekiq
+  #   depends_on:
+  #     - app
+  #     - db
+  #     - redis
+  #   #mem_limit: 512m
+  #   volumes:
+  #     - .:/app
+  #     - projeto_bundle:/usr/local/bundle
+  #   command: dotenv -f ".env" bundle exec sidekiq -C config/sidekiq.yml
+  #   networks:
+  #     - ecommerce_prog_network
+
+  mailcatcher:
+    image: dockage/mailcatcher:0.9.0
+    restart: on-failure
+    ports:
+    - "1080:1080"
+    - "1025:1025"
+
+volumes:
+  postgresData:
+  # redis_volume_data:
+  projeto_bundle:
+
+networks:
+  ecommerce_prog_network:
+    name: ecommerce_prog_network
