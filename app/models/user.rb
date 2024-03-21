@@ -7,6 +7,8 @@ class User < ApplicationRecord
   
   validates :name, :phone, presence: true # aqui da para fazer validação avaçadas tipo "DD DataFormatada"
 
+  has_one_attached :avatar
+
   enum role: { user: 'user', admin: 'admin'}
   # enum: role: ['user', 'admin'] # esses dois funciona, para mapear a tabela aqui  no model
 end

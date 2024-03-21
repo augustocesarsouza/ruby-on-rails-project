@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     collection do # member "setting PATCH /settings/:id(.:format)", collection "update_user_settings PATCH /settings/update_user(.:format)" #collection vem sem "id"
       patch :update_user
+      delete :delete_img_user
     end
   end
 

@@ -1,39 +1,46 @@
 <section class="py-5">
-    <div class="container">
-        <div class="row">
-          <div class="col-3">
-              <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                
-                <ul class="list-group list-group-flush">
-                  <a href="#" class="menu-item-profile"><li class="list-group-item">Alterar senha</li></a>
-                  <a href="#" class="menu-item-profile"><li class="list-group-item">Endereços</li></a>
-                  <a href="#" class="menu-item-profile"><li class="list-group-item">Produtos favoritos</li></a>
-                </ul>
-              </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <div class="card-header">
+            Featured
           </div>
-          <div class="col-9">
-            <div class="card">
-              <div class="card-body">
-                <%= render 'layouts/shared/flash' if flash.present? %>
-                <h2><%= current_user.name %></h2>
-                <%= image_tag "profile", width: 120, class: "mb-4" %>
-
-                <%= simple_form_for current_user, url: update_user_settings_path, data: { turbo: false }  do |f| %>
-                  <%= f.error_notification %>
-                  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-                  <%= f.input :email, readonly: true %>
-                  <%= f.input :name %>
-                  <%= f.input :phone, input_html: { class: "mask-phone" } %>
-                  <%= f.button :submit, "Atualizar", class: "btn btn-primary mt-4" %>
-                <% end %>
-              </div>
+          <ul class="list-group list-group-flush">
+            <a href="#" class="menu-item-profile">
+              <li class="list-group-item">Alterar senha</li>
+            </a>
+            <a href="#" class="menu-item-profile">
+              <li class="list-group-item">Endereços</li>
+            </a>
+            <a href="#" class="menu-item-profile">
+              <li class="list-group-item">Produtos favoritos</li>
+            </a>
+          </ul>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="card">
+          <div class="card-body">
+            <%= render 'layouts/shared/flash' if flash.present? %>
+            <h2><%= current_user.name %></h2>
+            <div class="edit-img">
+              <%= image_tag user_avatar_url(current_user), class: "img-user", "data-controller": change_data_controller(current_user), style: "cursor: pointer;" %>
             </div>
+            <%= simple_form_for current_user, url: update_user_settings_path, data: { turbo: false }  do |f| %>
+              <%= f.error_notification %>
+              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+              <%= f.input :avatar, label:false, input_html: { class: 'input_image_full', id: 'avatar_input', style: 'display: none;' } %>
+              <%= f.input :email, readonly: true %>
+              <%= f.input :name %>
+              <%= f.input :phone, input_html: { class: "mask-phone" } %>
+              <%= f.button :submit, "Atualizar", class: "btn btn-primary mt-4" %>
+            <% end %>
           </div>
+          <%= render 'layouts/userSettings/modal_option_img' %>
         </div>
       </div>
     </div>
+  </div>
+</div>
 </section>

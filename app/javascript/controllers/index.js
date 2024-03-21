@@ -12,6 +12,11 @@ application.register("hello", HelloController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import ChangeAvatarController from "./change_avatar_user_controller"
+application.register("change-avatar-user", ChangeAvatarController)
+
+import RemoveAvatarController from "./remover_avatar_user_controller"
+application.register("remover-avatar-user", RemoveAvatarController)
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller
 // import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"

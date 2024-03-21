@@ -14,10 +14,16 @@ class SettingsController < ApplicationController
     end 
   end
 
+  def delete_img_user
+    current_user.avatar.purge
+
+    redirect_to settings_path, notice: 'Image deleted successfully'
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :phone) # Permitindo parâmetros específicos do usuário
+    params.require(:user).permit(:name, :phone, :avatar) # Permitindo parâmetros específicos do usuário
   end
 end
 

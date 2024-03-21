@@ -1,39 +1,32 @@
 <p style="color: green"><%= notice %></p>
-
 <h1 class="h3 mb-4 text-gray-800">Categories</h1>
-
 <div class="row">
-    <div class="col-lg-12">
-        <!-- Circle Buttons -->
-        <div class="card shadow mb-4">
-            <div class="card-body">
-              <table class="table table-striped">
-                <thead>
-                  <th>Nome</th>
-                  <th>Posição</th>
-                  <th>Ações</th>
-                </thead>
-                <tbody>
-                   <%@categories.each do |category| %>
-                  <tr>
-                    <td><%= category.name %></td>
-                    <td><%= category.position %></td>
-                
-                    <td>
-                      <%= link_to "Details", admin_category_path(category), class: 'btn btn-primary' %>
-                      <%= link_to "Edit", edit_admin_category_path(category), "data-controller": "admin-modal", class: 'btn btn-secondary' %>
-                      <%= link_to "Delete", admin_category_path(category), class: 'btn btn-danger', method: :delete,  data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente excluir?' } %>
-                    </td>
-                   </tr>
-                  <% end %>
-                </tbody>
-              </table>
-
-              <%= link_to "New category", new_admin_category_path, "data-controller": "admin-modal", class: 'btn btn-primary' %>
-            </div>
-        </div>
+  <div class="col-lg-12">
+    <!-- Circle Buttons -->
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <th>Nome</th>
+            <th>Posição</th>
+            <th>Ações</th>
+          </thead>
+          <tbody>
+            <%@categories.each do |category| %>
+              <tr>
+                <td><%= category.name %></td>
+                <td><%= category.position %></td>
+                <td>
+                  <%= link_to "Details", admin_category_path(category), class: 'btn btn-primary' %>
+                  <%= link_to "Edit", edit_admin_category_path(category), "data-controller": "admin-modal", class: 'btn btn-secondary' %>
+                  <%= link_to "Delete", admin_category_path(category), class: 'btn btn-danger', method: :delete,  data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente excluir?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "New category", new_admin_category_path, "data-controller": "admin-modal", class: 'btn btn-primary' %>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
