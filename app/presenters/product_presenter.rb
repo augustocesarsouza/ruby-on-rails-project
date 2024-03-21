@@ -19,7 +19,7 @@ class ProductPresenter < SimpleDelegator
     # super -> aqui o nome do metodo 'price' quando ele bater 'if promo?' ele já chama no 'super' o atributo do 'product' 'price' e coloca ali no lugar do super
     # isso só é possivel por causa do 'SimpleDelegator', nessa hora '|p| ProductDecorator.new(p)', tem que ser mesmo nome do metodo aqui e do atributo ou metodo do product
     # 'super' ele chama e executa da class 'pai' que ele tem de herança, que seria por causa do 'SimpleDelegator' essa funcionalidade
-    return content_tag(:span, number_to_currency(super), class: "text-muted text-decoration-line-through") + " #{number_to_currency(promo_price)}" if promo?
+    return content_tag(:span, number_to_currency(super), class: 'text-muted text-decoration-line-through') + " #{number_to_currency(promo_price)}" if promo?
 
     number_to_currency(super)
 
