@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :addresses do
+    
+  end
+
   # namespace - você Separaria em rotas ficaria tipo admin/category/categories <- SE eu colocar namespace ASSIM "namespace:category e resources :categories dentro"  
   # MAS acho que nao faz sentido agora / tentar fazer depois esse jeito de separar namespace
   # nesse jeito teria um "app>controllers>category>categories_controller.rb" ai criaria o namespace
