@@ -14,6 +14,26 @@ class SettingsController < ApplicationController
     end 
   end
 
+  def update_password # existe outro jeito de atualizar a senha parece que essa mais simples
+    # esse metodo sabe muita coisa, atualizar renderizar 'bypass_sign_in', tem que quebrar esse metodo, ou até esse controller 
+    if !current_password_params[:current_password].empty? && current_user.valid_password?(current_password_params[:current_password])
+      if current_user.update(password_params)
+        bypass_sign_in(current_user) # isso é para ele nao deslogar automaticamente, quando atualizar a senha
+        redirect_to password_settings_path, notice: 'Senha atualizada com sucesso'
+      else
+        flash.now[:alert] = "Erro ao atualizar a senha."
+        render :password
+      end
+    else
+      flash[:error] = 'Senha atual incorreta'
+      redirect_to password_settings_path
+    end
+  end
+
+  def password
+    
+  end
+
   def delete_img_user
     current_user.avatar.purge
 
@@ -24,6 +44,14 @@ class SettingsController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :phone, :avatar) # Permitindo parâmetros específicos do usuário
+  end
+
+  def current_password_params
+    params.require(:user).permit(:current_password)
+  end
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 end
 
